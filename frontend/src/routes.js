@@ -27,7 +27,7 @@ import UserPage from "views/UserPage.js";
 var dashRoutes = [
   {
     path: "/dashboard",
-    name: "대시보드",
+    name: "로또",
     icon: "design_app",
     component: Dashboard,
     layout: "/admin",
