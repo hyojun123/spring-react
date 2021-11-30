@@ -22,6 +22,7 @@ pipeline {
                     }
                     steps {
                         sh './mvnw clean install jib:build -Djib.to.tags=prod.v$BUILD_NUMBER'
+                        sh 'sudo helm upgrade spring-react /home/hjchoi/kuber/spring-react/ --set image.tag="prod.v$BUILD_NUMBER"'
                     }
                 }
             }
