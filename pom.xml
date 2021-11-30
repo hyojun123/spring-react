@@ -111,6 +111,30 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>3.1.1</version>
+                <configuration>
+                    <to>
+                        <image>chlgkwk123/spring-react</image>
+                        <tags>dev</tags>
+                        <auth>
+                            <username>chlgkwk123</username>
+                            <password>chlgkwk123</password>
+                        </auth>
+                    </to>
+                    <container>
+                        <environment>
+                            <SPRING_PROFILES_ACTIVE>dev</SPRING_PROFILES_ACTIVE>
+                        </environment>
+                        <ports>
+                            <port>8080</port>
+                        </ports>
+                    </container>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
