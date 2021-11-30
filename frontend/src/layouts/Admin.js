@@ -60,7 +60,6 @@ function Admin(props) {
     <div className="wrapper">
       <Sidebar {...props} routes={routes} backgroundColor={backgroundColor} />
       <div className="main-panel" ref={mainPanel}>
-        <DemoNavbar {...props} />
         <Switch>
           {routes.map((prop, key) => {
             return (
@@ -73,7 +72,6 @@ function Admin(props) {
           })}
           <Redirect from="/admin" to="/admin/dashboard" />
         </Switch>
-        <Footer fluid />
       </div>
    
     </div>
