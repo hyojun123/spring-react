@@ -37,7 +37,7 @@ import {
   Label,
   FormGroup,
   Input,
-  UncontrolledTooltip,
+  UncontrolledTooltip, InputGroup,
 } from "reactstrap";
 
 // core components
@@ -51,6 +51,8 @@ import {
 import LottoBall from "../components/Lotto/LottoBall";
 
 function Dashboard() {
+
+
   const data = [
     {number1 : 1, number2 : 13, number3 : 18, number4: 25, number5 : 38, number6 : 44},
     {number1 : 3, number2 : 18, number3 : 19, number4: 40, number5 : 41, number6 : 44},
@@ -59,19 +61,40 @@ function Dashboard() {
     {number1 : 4, number2 : 22, number3 : 24, number4: 25, number5 : 44, number6 : 45},
   ];
 
-  const dataList = data.map((item, idx) => (
-      <LottoBall
-          number = {item}
-          key = {idx}
-      />
-  ));
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [isPhoneNumber, setIsPhoneNumber] = useState(false);
+  const insertPhoneNumber = () => {
+    setIsPhoneNumber(telValidator(phoneNumber))
+  }
+
+  const telValidator = (tel) => {
+    const msg = '유효하지 않는 전화번호입니다.';
+    if (/^[0-9]{2,3}[0-9]{3,4}[0-9]{4}/.test(tel)) {
+      return true;
+    }
+    alert(msg);
+    return false;
+  }
+
   return (
     <>
-
+      {!isPhoneNumber ?
+      <InputGroup>
+        <Input onChange={(e) => {setPhoneNumber(e.target.value)}} value={phoneNumber} style={{"backgroundColor":"white"}} placeholder="-없이 전화번호를 입력하세요"/>
+        <Button onClick={insertPhoneNumber} color="primary">
+          번호 입력
+        </Button>
+      </InputGroup>
+      :
       <div className="content">
-        {dataList}
+        {data.map((item, idx) => (
+            <LottoBall
+                number = {item}
+                key = {idx}
+            />
+        ))}
       </div>
-
+      }
 
     </>
   );
