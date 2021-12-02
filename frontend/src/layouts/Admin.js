@@ -82,7 +82,7 @@ function Admin(props) {
               />
             )
           })}
-          <Redirect from="/admin" to="/admin/dashboard" />
+          <Redirect from="/admin" to="/admin/lotto" />
         </Switch>
       </div>
    
