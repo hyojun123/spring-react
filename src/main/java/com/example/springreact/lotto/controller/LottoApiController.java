@@ -1,4 +1,4 @@
-package com.example.springreact.lotto;
+package com.example.springreact.lotto.controller;
 
 import com.example.springreact.lotto.model.LottoDto;
 import com.example.springreact.lotto.service.LottoService;
