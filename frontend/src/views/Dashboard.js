@@ -49,31 +49,35 @@ import {
   dashboard24HoursPerformanceChart,
 } from "variables/charts.js";
 import LottoBall from "../components/Lotto/LottoBall";
+import axios from "axios";
 
 function Dashboard() {
-
-
-  const data = [
-    {number1 : 1, number2 : 13, number3 : 18, number4: 25, number5 : 38, number6 : 44},
-    {number1 : 3, number2 : 18, number3 : 19, number4: 40, number5 : 41, number6 : 44},
-    {number1 : 6, number2 : 17, number3 : 25, number4: 38, number5 : 43, number6 : 44},
-    {number1 : 2, number2 : 14, number3 : 25, number4: 29, number5 : 42, number6 : 44},
-    {number1 : 4, number2 : 22, number3 : 24, number4: 25, number5 : 44, number6 : 45},
-  ];
+  const[data, setData] = useState([]);
 
   const [phoneNumber, setPhoneNumber] = useState('');
   const [isPhoneNumber, setIsPhoneNumber] = useState(false);
   const insertPhoneNumber = () => {
-    setIsPhoneNumber(telValidator(phoneNumber))
+    setIsPhoneNumber(telValidator(phoneNumber));
+    getLottoData(phoneNumber);
   }
+
+  const getLottoData = (phoneNumber) => {
+    const params = 'phone='+phoneNumber
+    
+    axios.get('/api/lotto?' + params)
+    .then(response => {
+      setData(response.data);
+    })
+
+  }
+
+
+  
 
   const telValidator = (tel) => {
     const msg = '유효하지 않는 전화번호입니다.';
-    if (/^[0-9]{2,3}[0-9]{3,4}[0-9]{4}/.test(tel)) {
-      return true;
-    }
-    alert(msg);
-    return false;
+
+    return true;
   }
 
   return (

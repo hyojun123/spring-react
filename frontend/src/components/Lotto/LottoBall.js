@@ -6,47 +6,47 @@ function LottoBall (props) {
     return (
         <div className="recommend-div">
             <div className={
-                props.number.number1 < 10 ? "circle yellow" :
-                props.number.number1 < 20 ? "circle blue" :
-                props.number.number1 < 30 ? "circle red" :
-                props.number.number1 < 40 ? "circle grey" :
+                props.number.drwtNo1 < 10 ? "circle yellow" :
+                props.number.drwtNo1 < 20 ? "circle blue" :
+                props.number.drwtNo1 < 30 ? "circle red" :
+                props.number.drwtNo1 < 40 ? "circle grey" :
                 "circle green"
-            }>{props.number.number1}</div>
+            }>{props.number.drwtNo1}</div>
             <div className={
-                props.number.number2 < 10 ? "circle yellow" :
-                props.number.number2 < 20 ? "circle blue" :
-                props.number.number2 < 30 ? "circle red" :
-                props.number.number2 < 40 ? "circle grey" :
+                props.number.drwtNo2 < 10 ? "circle yellow" :
+                props.number.drwtNo2 < 20 ? "circle blue" :
+                props.number.drwtNo2 < 30 ? "circle red" :
+                props.number.drwtNo2 < 40 ? "circle grey" :
                 "circle green"
-            }>{props.number.number2}</div>
+            }>{props.number.drwtNo2}</div>
             <div className={
-                props.number.number3 < 10 ? "circle yellow" :
-                props.number.number3 < 20 ? "circle blue" :
-                props.number.number3 < 30 ? "circle red" :
-                props.number.number3 < 40 ? "circle grey" :
+                props.number.drwtNo3 < 10 ? "circle yellow" :
+                props.number.drwtNo3 < 20 ? "circle blue" :
+                props.number.drwtNo3 < 30 ? "circle red" :
+                props.number.drwtNo3 < 40 ? "circle grey" :
                 "circle green"
-            }>{props.number.number3}</div>
+            }>{props.number.drwtNo3}</div>
             <div className={
-                props.number.number4 < 10 ? "circle yellow" :
-                props.number.number4 < 20 ? "circle blue" :
-                props.number.number4 < 30 ? "circle red" :
-                props.number.number4 < 40 ? "circle grey" :
+                props.number.drwtNo4 < 10 ? "circle yellow" :
+                props.number.drwtNo4 < 20 ? "circle blue" :
+                props.number.drwtNo4 < 30 ? "circle red" :
+                props.number.drwtNo4 < 40 ? "circle grey" :
                 "circle green"
-            }>{props.number.number4}</div>
+            }>{props.number.drwtNo4}</div>
             <div className={
-                props.number.number5 < 10 ? "circle yellow" :
-                props.number.number5 < 20 ? "circle blue" :
-                props.number.number5 < 30 ? "circle red" :
-                props.number.number5 < 40 ? "circle grey" :
+                props.number.drwtNo5 < 10 ? "circle yellow" :
+                props.number.drwtNo5 < 20 ? "circle blue" :
+                props.number.drwtNo5 < 30 ? "circle red" :
+                props.number.drwtNo5 < 40 ? "circle grey" :
                 "circle green"
-            }>{props.number.number5}</div>
+            }>{props.number.drwtNo5}</div>
             <div className={
-                props.number.number6 < 10 ? "circle yellow" :
-                props.number.number6 < 20 ? "circle blue" :
-                props.number.number6 < 30 ? "circle red" :
-                props.number.number6 < 40 ? "circle grey" :
+                props.number.drwtNo6 < 10 ? "circle yellow" :
+                props.number.drwtNo6 < 20 ? "circle blue" :
+                props.number.drwtNo6 < 30 ? "circle red" :
+                props.number.drwtNo6 < 40 ? "circle grey" :
                 "circle green"
-            }>{props.number.number6}</div>
+            }>{props.number.drwtNo6}</div>
         </div>
     )
 }
