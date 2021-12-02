@@ -27,8 +27,9 @@ import DemoNavbar from "components/Navbars/DemoNavbar.js";
 import Footer from "components/Footer/Footer.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
 import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
-
+import BoardWrite from "components/Board/BoardWrite";
 import routes from "routes.js";
+import notMenuRoutes from "notMenuRoutes.js";
 
 var ps;
 
@@ -66,9 +67,20 @@ function Admin(props) {
               <Route
                 path={prop.layout + prop.path}
                 component={prop.component}
+                exact={true}
                 key={key}
               />
             );
+          })}
+          {notMenuRoutes.map((prop, key) => {
+            return (
+              <Route
+                path={prop.layout + prop.path}
+                component={prop.component}
+                exact={true}
+                key={key}
+              />
+            )
           })}
           <Redirect from="/admin" to="/admin/dashboard" />
         </Switch>

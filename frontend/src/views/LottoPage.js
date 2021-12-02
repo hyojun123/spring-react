@@ -25,7 +25,7 @@ import {Button, Input, InputGroup,} from "reactstrap";
 import LottoBall from "../components/Lotto/LottoBall";
 import axios from "axios";
 import '../assets/css/Dashboard.css'
-function Dashboard() {
+function LottoPage() {
   const[data, setData] = useState([]);
 
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -85,4 +85,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default LottoPage;

@@ -15,7 +15,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import Dashboard from "views/Dashboard.js";
+
 import Notifications from "views/Notifications.js";
 import Icons from "views/Icons.js";
 import Typography from "views/Typography.js";
@@ -23,13 +23,22 @@ import TableList from "views/TableList.js";
 import Maps from "views/Maps.js";
 import Upgrade from "views/Upgrade.js";
 import UserPage from "views/UserPage.js";
+import BoardPage from 'views/BoardPage.js';
+import LottoPage from "views/LottoPage.js";
 
 var dashRoutes = [
   {
-    path: "/dashboard",
+    path: "/lotto",
     name: "로또",
     icon: "design_app",
-    component: Dashboard,
+    component: LottoPage,
+    layout: "/admin",
+  },
+  {
+    path: "/board",
+    name: "게시판",
+    icon: "design_app",
+    component: BoardPage,
     layout: "/admin",
   },
   {

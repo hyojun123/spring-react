@@ -1,38 +1,111 @@
-.recommend-div {
-    display: flex;
-    flex-direction: row;
-    padding: 50px;
+body {
+  margin-top: 60px;
 }
 
-.circle{
-    width: 100px;
-    height: 100px;
-    margin-left: 50px;
-    border-radius: 50%;
-    font-size: 35px;
-    line-height: 60px;
-    text-align: center;
-    box-shadow: 3px 3px 5px rgba(80,80,80,.5);
-    box-sizing: border-box;
-    background-color: whitesmoke;
+.recommend-div {
+  display: flex;
+  flex-direction: row;
+  padding: 50px;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  margin-left: 50px;
+  border-radius: 50%;
+  font-size: 35px;
+  text-align: center;
+  box-shadow: 3px 3px 5px rgba(80, 80, 80, 0.5);
+  box-sizing: border-box;
+  background-color: whitesmoke;
 }
 
 .yellow {
-    border: 20px solid #DCA552;
+  border: 20px solid #dca552;
 }
 
 .blue {
-    border: 20px solid #7BC4D3;
+  border: 20px solid #7bc4d3;
 }
 
 .red {
-    border: 20px solid #F58A7C;
+  border: 20px solid #f58a7c;
 }
 
 .grey {
-    border: 20px solid #BBBBBB;
+  border: 20px solid #bbbbbb;
 }
 
 .green {
-    border: 20px solid #9CBD54;
+  border: 20px solid #9cbd54;
+}
+p {
+  margin: 5px 0;
+}
+
+@media screen and (min-width: 620px) and (max-width: 850px) {
+  .recommend-div {
+    padding: 30px;
+  }
+  .circle {
+    width: 75px;
+    height: 75px;
+    margin-left: 25px;
+    font-size: 20px;
+  }
+  .yellow {
+    border: 15px solid #dca552;
+  }
+
+  .blue {
+    border: 15px solid #7bc4d3;
+  }
+
+  .red {
+    border: 15px solid #f58a7c;
+  }
+
+  .grey {
+    border: 15px solid #bbbbbb;
+  }
+
+  .green {
+    border: 15px solid #9cbd54;
+  }
+  p {
+    margin: 5px 0;
+  }
+}
+@media screen and (max-width: 620px) {
+  .recommend-div {
+    padding: 10px;
+  }
+  .circle {
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+    font-size: 15px;
+  }
+  .yellow {
+    border: 10px solid #dca552;
+  }
+
+  .blue {
+    border: 10px solid #7bc4d3;
+  }
+
+  .red {
+    border: 10px solid #f58a7c;
+  }
+
+  .grey {
+    border: 10px solid #bbbbbb;
+  }
+
+  .green {
+    border: 10px solid #9cbd54;
+  }
+  p {
+    margin: 5px 0;
+  }
 }
