@@ -1,2 +1,8 @@
-package com.example.springreact.user.controller;public class UserController {
+package com.example.springreact.user.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class UserController {
+
 }

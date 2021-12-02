@@ -16,9 +16,6 @@ public class LottoApiController {
 
     @GetMapping("/api/lotto")
     public List<LottoDto> wwwLotto(String phone) {
-
         return lottoService.getRecommendList(phone);
-
-
     }
 }
