@@ -15,42 +15,16 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 // react plugin used to create charts
-import { Line, Bar } from "react-chartjs-2";
 
 // reactstrap components
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  CardTitle,
-  Row,
-  Col,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  Table,
-  Button,
-  Label,
-  FormGroup,
-  Input,
-  UncontrolledTooltip, InputGroup,
-} from "reactstrap";
+import {Button, Input, InputGroup,} from "reactstrap";
 
-// core components
-import PanelHeader from "components/PanelHeader/PanelHeader.js";
-import {
-  dashboardPanelChart,
-  dashboardShippedProductsChart,
-  dashboardAllProductsChart,
-  dashboard24HoursPerformanceChart,
-} from "variables/charts.js";
+
 import LottoBall from "../components/Lotto/LottoBall";
 import axios from "axios";
-
+import '../assets/css/Dashboard.css'
 function Dashboard() {
   const[data, setData] = useState([]);
 
@@ -68,7 +42,6 @@ function Dashboard() {
     .then(response => {
       setData(response.data);
     })
-
   }
 
 
@@ -76,19 +49,27 @@ function Dashboard() {
 
   const telValidator = (tel) => {
     const msg = '유효하지 않는 전화번호입니다.';
+    const regExp = /^(\d{10,11})$/;
+    if(!regExp.test(tel)) {
+      alert(msg);
+      return false;
+    }
 
-    return true;
+    return confirm('입력하신 전화번호가 ' + tel + ' 이 맞습니까?');
   }
 
   return (
     <>
       {!isPhoneNumber ?
+      <>
+      <h1 className="page-title">전화번호 입력 후 확인 가능합니다</h1>
       <InputGroup>
         <Input onChange={(e) => {setPhoneNumber(e.target.value)}} value={phoneNumber} style={{"backgroundColor":"white"}} placeholder="-없이 전화번호를 입력하세요"/>
         <Button onClick={insertPhoneNumber} color="primary">
           번호 입력
         </Button>
       </InputGroup>
+      </>
       :
       <div className="content">
         {data.map((item, idx) => (
