@@ -23,6 +23,8 @@
     "animated-styled-components": "^0.6.0",
     "react-router-dom": "^5.3.0",
     "aos": "^2.3.4",
+    "gulp": "4.0.2",
+    "gulp-append-prepend": "1.0.9",
     "bootstrap": "^4.6.0",
     "emailjs-com": "^2.6.4",
     "react": "^17.0.1",
@@ -37,7 +39,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && gulp licenses",
     "test": "jest",
     "eject": "react-scripts eject"
   },
