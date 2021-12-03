@@ -21,7 +21,7 @@
   "proxy": "http://localhost:8080",
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm i -g npx && npx browserslist@latest --update-db && react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
