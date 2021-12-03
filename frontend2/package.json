@@ -1,6 +1,9 @@
 {
   "name": "linjanja-pacifique",
   "version": "0.1.0",
+  "main": "dist/index.js",
+  "homepage": "",
+  "proxy": "http://localhost:8080",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
