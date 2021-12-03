@@ -1,132 +1,210 @@
-# ReactFolio [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/Ikalli/ReactFolio/blob/master/LICENSE)
-## Nice and Clean Responsive Dark Theme Portfolio Website with React!
+# Portfolio Template for Devs
 
-![캡처s](https://user-images.githubusercontent.com/16658067/94679897-d2e40c00-035b-11eb-8c90-c4fb4f79157d.PNG)
+<p align="center">
+<a href="https://linkedin.com/in/pacifique-linjanja/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-pacifiquelinjanja-blue?style=flat-square&logo=linkedin"></a>
+<a href="https://www.instagram.com/linjanjapacifique/"><img alt="Instagram" src="https://img.shields.io/badge/Instagram-linjanjapacifique__-blue?style=flat-square&logo=instagram"></a>
+<a href="mailto:pacilinja2@gmail.com"><img alt="Email" src="https://img.shields.io/badge/Email-pacilinja2@gmail.com-blue?style=flat-square&logo=Microsoft%20outlook"></a>
+</p>
 
-## Demo Page
-https://ikalli.github.io/ReactFolio
+> This is a Template project with the  aim to help developer to crate professional template for free and in a time records without dealing with deep codes
 
-## Contents
-* Greeting and Summary
-* Skills
-* Work Experiences
-* Open Source Projects(Github pinned repository)
-* Other Projects
-* Achievement and Certification
-* Blog Posts
-* Contact
+## Description
 
-## Getting Started
-You have to install Node.js and Git for use.
+### Tech Stack
 
-## How To Use
-1. Fork or clone this repository.  
+This project is based in these main tech stacks :
+
+- ReactJS - styled-components - data-aos
+- Typescript
+- React Bootstrap
+- Material UI
+- NodeJS
+- [EmailJS](https://www.emailjs.com/docs/sdk/installation/)
+
+## Prerequisite
+
+- To use the template, you need a basic understanding of Javascript
+- To contribute, please make sure you follow best practices in the tech stacks specified before
+- To run the project locally you need [NodeJs](https://nodejs.org/en/) and [Typescript](https://www.typescriptlang.org/docs/) installed globaly in you computer
+
+## Get Started
+
+> These steps are required to make you own copy of the project and get started, of contribution it is highly important to follow all of these steps and make sure you are following a correct Git flow workflow
+
+1. Clone [Prefered] or fork the project to get a copy of it, by preference, clone it using
+
 ```
-git clone https://github.com/ikalli/ReactFolio.git  
-cd ReactFolio
-```
-2. Fill `portfolio.tsx` with your story!
-3. If you want to test your website, open terminal and follow below.
-```
-# project root directory
-npm i
-npm start
-```
-Yarn also possible!
-Then, new brower window maybe pop up with localhost:3000
-
-4. You NEED token, github personal access token, public use
-  * goto https://github.com/settings/tokens
-  * Click 'Personal access token'
-  * Click 'Generate new token' and confirm password
-  * Write token name in note
-  * __IMPORTANT! DO NOT CHECK IN SELECT SCOPE!!__
-  ![token](https://user-images.githubusercontent.com/16658067/94020991-79755d80-fdee-11ea-9ba0-80fb76652d94.PNG)
-  * Click Generate token
-  * Copy token - If you lose token, click regenerate token
-  
-5. Create .env.local file in project root directory and write following 1-line code
-```
---public
---src
---.env.local  // Create!
---.gitignore
---tsconfig.json
---package.json
-...
-
-# .env.local
-
-REACT_APP_GITHUB_TOKEN = /your token/
+$ git clone https://github.com/pacyL2K19/portfolio-mine.git
 ```
 
-6. Open .gitignore and check .env.local is contained  
+2. Go to the directory
 
-**If you get into trouble with Github Token, go to Reference part and click Github Docs**  
-And you can see 6 or less repositories that you pinned.
+```
+cd portfolio-mine
+```
 
-7. Change favicon, apple-touch-icon and other images.
+3. Install the packages
 
-8. Change `public/index.html` meta tags!
+```
+$ npm install
+```
 
-9. **Modify Codes if you want!**
+4. Setup your `config.js` file by following the `config.sample.js` file template
+5. Run the project
 
-## Deploy
-* Install gh-pages module 
-* `npm i -D gh-pages` or `yarn add gh-pages`
-* Modify `package.json` hompage to your github page  
+```
+$ npm run start
+```
 
-Example: `homepage: https://[username].github.io/ReactFolio` 
+At this point you should be able to get a the project running in the default web browser, if not please make sure you folowed all the steps or open a well detailed issue
 
-* open terminal and following instruction  
+## Customization
 
-`npm run deploy`
+1. Favicon : Feel free to change the actual `favicon.ico` file
+2. Update the content :
+   > - In the `helper/` folder, change couple of word by yours
+   >   > - **`header.json`**: the content of the header section, feel free to change the name and the description
+   >   > - In the same file, you can change the items of the navbar, the way they are named for example from `Portfolio` to `Home`
+   > - In the **`projects.json`** file : Customize the list of featured projects
+   >   > - Images are url links, feel free to use any platform of choice to store them, for my case I used [Cloudinary](https://cloudinary.com/) but Goole Drive or any cloud plateform can be used
+   >   > - Add **`live links`** (if available) and `Github links` if not availbale, just put the default one `#`
+   >   > - In globlal, this is the schema of each project: :down
 
-* Then gh-pages branch will be automatically generated and you can see pages!!
+```
+// src/types.d.ts
 
-## Used Technologies
-* CSS3
-* TypeScript
-* React
-* Github GraphQL API
-* Apollo-Boost
-* react-easy-emoji
-* react-reveal  
-
-⚠ If you want to use react-reveal effect, you have to variable declaration with `require()`.  
-⚠ Example
-```typescript
-...import 
-
-export default function Ex() {
-  const Fade: any = require('react-reveal/Fade');
-  return (
-    <Fade>
-      ...
-    </Fade>
-  );
+type Project = {
+    imgUrl: string,
+    title: string,
+    description?: string,
+    techs?: string[],
+    id: number,
+    github_link?: string
 }
+
+```
+⚠️ Some of them are required, make sure all the projects contains required fields or you face errors on the running
+3. In the **`social.json`** file: An array of `Social` object following this schema below, fell free to put a number of social media you want in the actual array
+```
+// src/types.d.ts
+
+type Social = {
+    key: int,
+    for: string,
+    class: string,
+    link: string
+}
+
+// in the helper, the object should follow :
+
+social : Social[] // just a representation
+
 ```
 
-## Contributes
+4. In the **`about.json`** file: customize text, add most used `languages`, `frameworks` and `tools` in corresponding arrays
+5. In the **`animations.json`** file, customize animation effects for each section and subsection, make sure you put correct names as the [data-aos](https://michalsnik.github.io/aos/) Doc specifies it, duration and delay can be customized as well
+6. In the **`contacts.json`** file, customize texts to be displayed as well
+7. Theming: colors and font ca be customized by updating values in these files
 
-You can just change `src/portfolio.tsx` to get your portfolio website. Also you can modify component codes if you want!
+- **`src/core/theme/colors.ts`** : change the `mainText` color, the `background`, ...
+- **`src/core/theme/fonts.ts`** : change `font-size` and `font-familly` for `titles`, `sub-title`, ...
 
-But if you want to contribute to ReactFolio and make much better, look at [Issues](https://github.com/Ikalli/ReactFolio/issues).
+## The Default Design
 
-If you created something cool and want to contribute, open an [Pull request](https://github.com/Ikalli/ReactFolio/pulls).
+Main screenshots
 
-## Reference
-[Github Token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)  
+![screenshot](screenshots/oneDESK.png)
 
-[Github GraphQL API](https://docs.github.com/en/graphql)  
+- Main project
+  ![screenshot](screenshots/twoDESK.png)
+- Other projects
+  ![screenshot](screenshots/threeDESK.png)
+- Footer
+  ![screenshot](screenshots/FIVEDESK.png)
+- Mobile version
+  ![screenshot](screenshots/mobilePort.png)
 
-[DeveloperFolio](https://github.com/saadpasta/developerFolio)  
+## Project structure
 
-[React Reveal](https://www.react-reveal.com/)  
+    |── node_modules (to be generated)
+    ├── public/
+        ├── favicon.ico
+        ├── index.html
+        ├── manifest.json
+        ├── robots.txt
+    ├── src/
+        ├── assets/
+            ├── Images
+        ├── components/
+            ├── Home/
+                ├── index.test.tsx
+                ├── index.tsx
+                ├── style.ts
+            ├── MainProject/ (same structure as the home)
+            ├── Menu/ (same structure as the home)
+            ├── Project/ (same structure as the home)
+            ├── styled.ts
+            ├── Button.txs
+        ├── container/
+            ├── About/
+                ├── index.test.tsx
+                ├── index.tsx
+                ├── style.ts
+            ├── Contacts (same structure as the About)
+            ├── Header/ (same structure as the About)
+            ├── Projects/ (same structure as the About)
+        ├── core/
+            ├── theme/
+                ├── colors.ts
+                ├── fonts.ts
+                ├── index.ts
+        ├── App.tsx
+        ├── index.css
+        ├── index.tsx
+        ├── types.d.ts
+    ├── screenshots/
+        ├── // Images
+    ├── .gitignore
+    ├── config.js (to be recreated)
+    ├── config.sample.js
+    ├── package-lock.json
+    ├── yarn.lock
+    ├── package.json
+    ├── eslintrc.json
+    ├── README.md
 
-[React Easy Emoji](https://www.npmjs.com/package/react-easy-emoji)  
+## Contributing
 
-[gh-pages](https://www.npmjs.com/package/gh-pages)
+Feel free to contribute to the project by following a correct Git flow workflow:
 
-## Contributors
+- Create a meaningful names in this format `feature/feature-name`
+- Make local tests and remote tests before raising a PR
+- Create a detailed PR with screenshots and short description, make sure each feature contains testing feature, correct syntax and easy to customize by other devs (the philosophy of the project)
+- For forked projects, recognize the author putting `Forked from ` [@pacyL2K19](https://github.com/pacyL2K19/portfolio-mine) `portfolio template` in the footer (set by default for you :}) kindly don't remove it
+
+- These are next implemetation(Feel free to contribute):
+  > - Multilanguage by creating our own dictionary
+  > - Dark / Light switch
+  > - Add what you think I forgot as a contribution :eye
+
+## Author
+
+👤 **Pacifique Linjanja**
+
+- Github: [@pacyL2K19](https://github.com/pacyL2K19)
+- Twitter: [@PacifiqueLinja1](https://twitter.com/PacifiqueLinja1)
+- Linkedin: [Pacifique Linjanja](https://www.linkedin.com/in/pacifique-linjanja/)
+
+## 🤝
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/pacyL2K19/portfolio-mine/issues).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## License
+
+This project is [MIT](lic.url) licensed.
