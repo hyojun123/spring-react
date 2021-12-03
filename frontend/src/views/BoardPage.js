@@ -35,6 +35,7 @@ function BoardPage() {
         .then(response =>{
           let data = response.data;
           setBoards([...data])
+          console.log(response);
         })
 
 

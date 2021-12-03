@@ -20,15 +20,10 @@ import React from "react";
 import PerfectScrollbar from "perfect-scrollbar";
 
 // reactstrap components
-import { Route, Switch, Redirect, useLocation } from "react-router-dom";
+import {Redirect, Route, Switch, useLocation} from "react-router-dom";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 // core components
-import DemoNavbar from "components/Navbars/DemoNavbar.js";
-import Footer from "components/Footer/Footer.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
-import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
-import BoardWrite from "components/Board/BoardWrite";
 import routes from "routes.js";
 import notMenuRoutes from "notMenuRoutes.js";
 
