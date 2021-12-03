@@ -1,7 +1,6 @@
 pipeline {
     agent any
-    tools {nodejs "nodejs"}
-
+    tools {nodejs "NODEJS"}
     stages {
         stage('chmod') {
             steps {
