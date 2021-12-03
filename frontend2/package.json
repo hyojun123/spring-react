@@ -37,7 +37,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm update caniuse-lite browserslist && react-scripts build",
+    "build": "react-scripts build",
     "test": "jest",
     "eject": "react-scripts eject"
   },
