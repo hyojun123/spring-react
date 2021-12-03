@@ -21,6 +21,10 @@ pipeline {
                         anyOf {branch 'master'}
                     }
                     steps {
+                        sh 'cd frontend2/'
+                        sh 'npm install'
+                        sh 'npm run build'
+                        sh 'cd ..'
                         sh './mvnw clean install jib:build -Djib.to.tags=prod.v$BUILD_NUMBER'
                         sh 'sudo helm upgrade spring-react /home/hjchoi/kuber/spring-react/ --set image.tag="prod.v$BUILD_NUMBER"'
                     }
