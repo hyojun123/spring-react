@@ -17,41 +17,37 @@
 */
 import React, {useState} from "react";
 // react plugin used to create charts
-
 // reactstrap components
-import {Button, Card, CardBody, CardHeader, CardTitle, Col, Input, InputGroup, Row, Table} from "reactstrap";
-
-
-import LottoBall from "../components/Lotto/LottoBall";
-import axios from "axios";
+import {Button, Table} from 'react-bootstrap';
 import '../assets/css/Dashboard.css'
-import PanelHeader from "components/PanelHeader/PanelHeader";
+import BoardList from "../components/Board/BoardList";
+import {tbody, thead} from "variables/general";
+import {Link} from "react-router-dom";
+import {useEffect} from "react/cjs/react.development";
+import axios from "axios";
 
-import { thead, tbody } from "variables/general";
-import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
-import { useEffect } from "react/cjs/react.development";
-import Board from "components/Board/Board";
 function BoardPage() {
   const[boards, setBoards] = useState([]);
-  const[number, setNumber] = useState(0);
+
 
   useEffect(() => {
-    let data = [
-      {id:1, title:"제목1", content:"내용1"},
-      {id:2, title:"제목2", content:"내용2"},
-      {id:3, title:"제목3", content:"내용3"},
-    ]
+    axios('/api/board')
+        .then(res =>{
+          let data = res.data;
+          setBoards([...data])
+          console.log(res)
+        })
 
-    setBoards([...data])
+
   },[])
   
 
   
   return (
     <>
+      <BoardList boards={boards}/>
       <Link to='/admin/board/write'>
-        <Button>글쓰기</Button>
+        <Button  variant="primary">글쓰기</Button>
       </Link>
     </>
   );

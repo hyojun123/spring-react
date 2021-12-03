@@ -22,6 +22,7 @@ import PerfectScrollbar from "perfect-scrollbar";
 // reactstrap components
 import { Route, Switch, Redirect, useLocation } from "react-router-dom";
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 // core components
 import DemoNavbar from "components/Navbars/DemoNavbar.js";
 import Footer from "components/Footer/Footer.js";
