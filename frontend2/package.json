@@ -36,7 +36,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm i npx && npx browserslist@latest --update-db && react-scripts build",
+    "build": "react-scripts build",
     "test": "jest",
     "eject": "react-scripts eject"
   },
