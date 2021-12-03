@@ -23,6 +23,8 @@ pipeline {
                     }
                     steps {
                         sh 'cd frontend2'
+                        sh 'pwd'
+                        sh 'ls -al'
                         sh 'npm install'
                         sh 'npm run build'
                         sh 'cd ..'
