@@ -14,7 +14,7 @@ import {achievements, blogs, contactInfo, experience, greeting, projects, skills
 
 function Main() {
 	return (
-		<div className="root">
+		<>
 			<Header />
 			{greeting.view && <Hello />}
 			{skills.view && <Skill />}
@@ -25,7 +25,7 @@ function Main() {
 			{contactInfo.view && <Contact />}
 			<Footer />
 			<Top />
-		</div>
+		</>
 	);
 }
 export default Main;
