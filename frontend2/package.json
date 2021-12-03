@@ -60,19 +60,19 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/react": "^12.1.2",
-    "@types/jest": "^27.0.3",
-    "@types/styled-components": "^5.1.16",
-    "@typescript-eslint/eslint-plugin": "^5.5.0",
-    "@typescript-eslint/parser": "^5.5.0",
-    "eslint": "^7.3.0",
-    "eslint-plugin-react": "^7.27.1",
-    "graceful-fs": "^4.2.8",
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^27.4.3",
-    "jest-dom": "^4.0.0",
-    "react-test-renderer": "^17.0.2",
-    "riteway": "^6.3.1"
+//    "@testing-library/react": "^12.1.2",
+//    "@types/jest": "^27.0.3",
+//    "@types/styled-components": "^5.1.16",
+//    "@typescript-eslint/eslint-plugin": "^5.5.0",
+//    "@typescript-eslint/parser": "^5.5.0",
+//    "eslint": "^8.3.0",
+//    "eslint-plugin-react": "^7.27.1",
+//    "graceful-fs": "^4.2.8",
+//    "identity-obj-proxy": "^3.0.0",
+//    "jest": "^27.4.3",
+//    "jest-dom": "^4.0.0",
+//    "react-test-renderer": "^17.0.2",
+//    "riteway": "^6.3.1"
   },
   "jest": {
     "setupFilesAfterEnv": [
