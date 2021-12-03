@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { theme } from "../../core/theme";
 import { Nav, Navbar } from "react-bootstrap";
-
+import { Link } from "react-router-dom";
 interface Props {
   navs: string[];
 }
@@ -32,18 +32,22 @@ const Menu: React.FC<Props> = (props: Props) => {
         }}
         variant="dark"
       >
-        <Navbar.Brand href="#home">Pacifique Linjanja</Navbar.Brand>
+        <Link className={"navbar-brand"} to={"/"}>
+          Hyojun&apos;s playground
+        </Link>
+
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto"></Nav>
           {props.navs.map((item) => (
-            <Nav.Link
+            <Link
+              className={"nav-link"}
               key={item}
               style={{ color: theme.colors?.menuLinks }}
-              href={"#" + item.toLowerCase()}
+              to={"/" + item.toLowerCase()}
             >
               {item}
-            </Nav.Link>
+            </Link>
           ))}
         </Navbar.Collapse>
       </Navbar>

@@ -9,8 +9,9 @@ import TextField from "@material-ui/core/TextField";
 import Button from "../../components/Button";
 import Notice from "../../components/Notice";
 
-const Contacts: React.FC = () => {
+const Lotto: React.FC = () => {
   const [firstName, setFIrstName] = useState("");
+  const [intro, setIntro] = useState("로또 추천 페이지입니다.");
   const [notice, setNotice] = useState<Notice>({
     content: "",
     type: "SUCCESS",
@@ -86,20 +87,12 @@ const Contacts: React.FC = () => {
         <Container fluid>
           <Row className="d-flex align-items-center justify-content-center">
             <Col lg={"4"} className="px-3 px-md-5">
-              <Text>{data.intro}</Text>
+              <Text>{intro}</Text>
             </Col>
             <Col lg={"8"} className="px-3 px-md-5">
               <Row>
                 <Col lg={"6"}>
-                  <TextField
-                    fullWidth
-                    style={{ margin: "15px 0" }}
-                    id="first-name"
-                    name="firstName"
-                    label="First Name *"
-                    value={firstName}
-                    onChange={(e) => setFIrstName(e.target.value)}
-                  />
+                  <div>123</div>
                 </Col>
                 <Col lg={"6"}>
                   <TextField
@@ -177,4 +170,4 @@ const Contacts: React.FC = () => {
   );
 };
 
-export default Contacts;
+export default Lotto;

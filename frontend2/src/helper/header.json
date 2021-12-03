@@ -1,9 +1,10 @@
 {
-  "author": "Pacifique Linjanja",
-  "navbar-items": ["Portfolio", "Projects", "About", "Contacts"],
+  "author": "Hyojun Choi",
+  "navbar-items": ["Lotto", "Board", "About", "Contacts"],
+
   "texts": {
-    "main": "Hey There, I am Pacifique",
-    "title": "I am a Fullstack Software Engineer",
-    "intro": "I can build frontend applications and backend applications with the most exciting technologies. Let me help you or your company building software solutions, don't hesitate to contact me."
+    "main": "리액트, 스프링부트 공부방",
+    "title": "안녕하세요. 이 페이지에 오신걸 환영합니다.",
+    "intro": "여기는 스프링부트, 리액트로 이루어진 사이트입니다. 다양하게 연습하기 위해 만든 사이트입니다."
   }
 }
