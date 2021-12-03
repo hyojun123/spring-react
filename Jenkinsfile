@@ -22,7 +22,7 @@ pipeline {
                         anyOf {branch 'master'}
                     }
                     steps {
-                        sh 'cd frontend2/'
+                        sh 'cd frontend2'
                         sh 'npm install'
                         sh 'npm run build'
                         sh 'cd ..'
