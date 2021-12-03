@@ -31,11 +31,10 @@ function BoardPage() {
 
 
   useEffect(() => {
-    axios('/api/board')
-        .then(res =>{
-          let data = res.data;
+    axios.get('/api/board')
+        .then(response =>{
+          let data = response.data;
           setBoards([...data])
-          console.log(res)
         })
 
 
