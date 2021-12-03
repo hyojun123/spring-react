@@ -36,5 +36,5 @@ build/
 /frontend/build
 /frontend/node_modules
 
-/frontend2/build
-/frontend2/node_modules
+#/frontend2/build
+#/frontend2/node_modules
