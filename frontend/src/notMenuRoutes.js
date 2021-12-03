@@ -21,7 +21,7 @@ import BoardWrite from "components/Board/BoardWrite";
 
 var dashRoutes = [
   {
-    path: "/board/write/:id",
+    path: "/board/write",
     icon: "design_app",
     component: BoardWrite,
     layout: "/admin",
