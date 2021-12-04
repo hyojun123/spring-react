@@ -1,85 +1,32 @@
-import React, { useState } from "react";
-import { Container, Col, Row } from "react-bootstrap";
-import { Text, Box } from "./styled";
-import emailjs from "emailjs-com";
-import secrets from "../../secrets";
-import data from "../../helper/contacts.json";
+import React, {useState} from "react";
+import {Col, Container, Row} from "react-bootstrap";
+import {BallSpan1, BallSpan2, BallSpan3, BallSpan4, BallSpan5, Box, Text} from "./styled";
 import social from "../../helper/social.json";
 import TextField from "@material-ui/core/TextField";
-import Button from "../../components/Button";
+// import Button from "../../components/Button";
 import Notice from "../../components/Notice";
+import { Button } from "react-bootstrap";
 
 const Lotto: React.FC = () => {
-  const [firstName, setFIrstName] = useState("");
-  const [intro, setIntro] = useState("로또 추천 페이지입니다.");
-  const [notice, setNotice] = useState<Notice>({
+  const [intro] = useState("로또 추천 페이지입니다.");
+  const [notice] = useState<Notice>({
     content: "",
     type: "SUCCESS",
   });
-  const [visible, setVisible] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [lastName, setLastName] = useState("");
-  const [message, setMessage] = useState(data.sample);
-  const [email, setEmail] = useState("");
-  const resetForm = () => {
-    setFIrstName("");
-    setLastName("");
-    setMessage("Hello Pacifique ...");
-    setEmail("");
-    setIsLoading(false);
-    setTimeout(() => {
-      setVisible(false);
-    }, 2000);
-  };
-  const handleSubmit = () => {
-    setIsLoading(true);
-    if (firstName.trim() !== "" && email.trim() !== "") {
-      emailjs
-        .send(
-          secrets.SERVICE_ID,
-          secrets.TEMPLATE_ID,
-          {
-            to_name: "Me",
-            from_name: firstName + " " + lastName,
-            message: message,
-          },
-          secrets.USER_ID
-        )
-        .then(() => {
-          setVisible(true);
-          setNotice({
-            content:
-              "Thank you for your insterrest, I will be back to you in the next few minutes",
-            type: "SUCCESS",
-            visible,
-          });
-          resetForm();
-        })
-        .catch(() => {
-          setVisible(true);
-          setNotice({
-            content: "An error occured, please try again later",
-            type: "ERROR",
-            visible,
-          });
-          setTimeout(() => {
-            setVisible(false);
-          }, 2000);
-          setIsLoading(false);
-        });
-    } else {
-      setVisible(true);
-      setNotice({
-        content: "Kindly put at leat your first name and your email address",
-        type: "ERROR",
-        visible,
-      });
-      setTimeout(() => {
-        setVisible(false);
-      }, 2000);
-      setIsLoading(false);
+  const [visible] = useState(false);
+  const [isLoading] = useState(false);
+  const [phoneNumber, setPhoneNumber] = useState("");
+
+  const checkValidPhoneNumber = (e:string) => {
+    if(e.replace(/[^0-9]/g, "").length > 11) {
+      alert("올바르지 않은 전화번호입니다");
+      return;
     }
+    const value = e.replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3").replace("--", "-");
+
+    setPhoneNumber(value);
   };
+
   return (
     <>
       <Box id="contacts">
@@ -91,45 +38,43 @@ const Lotto: React.FC = () => {
             </Col>
             <Col lg={"8"} className="px-3 px-md-5">
               <Row>
-                <Col lg={"6"}>
-                  <div>123</div>
+                <Col lg={"12"}>
+                  전화번호를 입력하시면 로또 당첨번호를 추천받을 수 있습니다.
                 </Col>
-                <Col lg={"6"}>
+              </Row>
+              <Row>
+                <Col lg={"12"}>
                   <TextField
                     style={{ margin: "15px 0" }}
                     fullWidth
-                    id="last-name"
-                    name="lasttName"
-                    label="Last Name"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
+                    id="phoneNumber"
+                    name="phoneNumber"
+                    label="전화번호 *"
+                    value={phoneNumber}
+                    onChange={(e) => checkValidPhoneNumber(e.target.value)}
                   />
                 </Col>
               </Row>
-              <TextField
-                style={{ margin: "15px 0" }}
-                fullWidth
-                id="email"
-                name="email"
-                label="Email *"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <TextField
-                fullWidth
-                style={{ margin: "15px 0" }}
-                id="message"
-                name="message"
-                label="Message"
-                multiline
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-              />
-              <a onClick={handleSubmit}>
-                <Button
-                  title={isLoading ? "Sending ..." : data["button-title"]}
-                />
-              </a>
+              <Row>
+                <Col lg={"12"}>
+                  <BallSpan1>1</BallSpan1>
+                  <BallSpan2>1</BallSpan2>
+                  <BallSpan3>1</BallSpan3>
+                  <BallSpan4>1</BallSpan4>
+                  <BallSpan5>1</BallSpan5>
+                  <BallSpan4>1</BallSpan4>
+                </Col>
+              </Row>
+              <Row>
+                <Col lg={"12"}>
+                  <Button
+                    style={{"width":"100%"}}
+                    onClick={() => {
+                      alert(123);
+                    }}
+                  >당첨번호받기</Button>
+                </Col>
+              </Row>
             </Col>
           </Row>
           <div
@@ -138,7 +83,7 @@ const Lotto: React.FC = () => {
               margin: "150px 0 35px 0",
               backgroundColor: "#DFE1E6",
             }}
-          ></div>
+          />
           <div className="d-flex align-items-center justify-content-center">
             {social.social.map((i) => (
               <h2 className="mx-3" key={i.class}>
@@ -146,23 +91,10 @@ const Lotto: React.FC = () => {
                   <i
                     style={{ color: "#505F79", fontSize: 20 }}
                     className={i.class}
-                  ></i>
+                  />
                 </a>
               </h2>
             ))}
-          </div>
-          <div className="d-flex align-items-center justify-content-center">
-            {social.social[0].link === "https://github.com/pacyL2K19" ? (
-              <p></p>
-            ) : (
-              <p>
-                Forked from{" "}
-                <a href="https://github.com/pacyL2K19/portfolio-mine">
-                  @pacyL2K19{" "}
-                </a>{" "}
-                portfolio template
-              </p>
-            )}
           </div>
         </Container>
       </Box>

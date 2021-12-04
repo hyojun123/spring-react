@@ -7,7 +7,6 @@ interface Props {
 }
 const Menu: React.FC<Props> = (props: Props) => {
   const [navBackground, setNavBackground] = useState(false);
-
   const handleScroll = () => {
     if (window.scrollY >= 65) {
       setNavBackground(true);
@@ -38,17 +37,18 @@ const Menu: React.FC<Props> = (props: Props) => {
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="mr-auto"></Nav>
-          {props.navs.map((item) => (
-            <Link
-              className={"nav-link"}
-              key={item}
-              style={{ color: theme.colors?.menuLinks }}
-              to={"/" + item.toLowerCase()}
-            >
-              {item}
-            </Link>
-          ))}
+          <Nav className="mr-auto">
+            {props.navs.map((item) => (
+              <Nav.Link
+                className={"nav-link"}
+                key={item}
+                style={{ color: theme.colors?.menuLinks }}
+                href={"/" + item.toLowerCase()}
+              >
+                {item}
+              </Nav.Link>
+            ))}
+          </Nav>
         </Navbar.Collapse>
       </Navbar>
     </>
