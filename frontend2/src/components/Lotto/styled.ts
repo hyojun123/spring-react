@@ -22,7 +22,7 @@ export const BallSpan = styled.span`
     height: 26px;
     line-height: 24px;
     font-weight:500;
-    margin-left:30px;
+    margin-left:15px;
     /* text-shadow: 0px 0px 2px rgba(0, 0, 0, 1); */
 `;
 

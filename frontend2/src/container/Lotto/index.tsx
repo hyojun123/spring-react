@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, ProgressBar } from "react-bootstrap";
 import { Box, Text } from "./styled";
 import social from "../../helper/social.json";
 import TextField from "@material-ui/core/TextField";
@@ -9,7 +9,7 @@ import RecommendLotto from "../../components/Lotto/RecommendLotto";
 import axios from "axios";
 
 const Lotto: React.FC = () => {
-  const [intro] = useState("로또 추천 페이지입니다.");
+  const [intro, setIntro] = useState("로또 추천 페이지");
   const [notice] = useState<Notice>({
     content: "",
     type: "SUCCESS",
@@ -18,6 +18,8 @@ const Lotto: React.FC = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [isLotto, setIsLotto] = useState(false);
   const [lottoNumber, setLottoNumber] = useState([]);
+  const [percent, setPercent] = useState<number>(0);
+
   const checkValidPhoneNumber = (e: string) => {
     if (e.replace(/[^0-9]/g, "").length > 11) {
       alert("올바르지 않은 전화번호입니다");
@@ -35,10 +37,18 @@ const Lotto: React.FC = () => {
   };
 
   const getRecommendList = () => {
-    axios("/api/lotto?number=" + phoneNumber).then((res) => {
-      setLottoNumber(res.data);
-      setIsLotto(true);
-    });
+    for (let i = 0; i <= 100; i++) {
+      setTimeout(() => {
+        setPercent(i);
+      }, i * 50);
+    }
+    setTimeout(() => {
+      axios("/api/lotto?number=" + phoneNumber).then((res) => {
+        setLottoNumber(res.data);
+        setIntro("이번주 로또 추천 번호");
+        setIsLotto(true);
+      });
+    }, 1500);
   };
 
   return (
@@ -47,12 +57,12 @@ const Lotto: React.FC = () => {
         <Notice visible={visible} content={notice.content} type={notice.type} />
         <Container fluid>
           <Row className="d-flex align-items-center justify-content-center">
-            <Col lg={"4"} className="px-3 px-md-5">
-              <Text>{intro}</Text>
-            </Col>
-            <Col lg={"8"} className="px-3 px-md-5">
-              {!isLotto ? (
-                <>
+            {!isLotto ? (
+              <>
+                <Col lg={"4"} className="px-3 px-md-5">
+                  <Text>로또 추천 페이지</Text>
+                </Col>
+                <Col lg={"8"} className="px-3 px-md-5">
                   <Row>
                     <Col lg={"12"}>
                       전화번호를 입력하시면 로또 당첨번호를 추천받을 수
@@ -82,11 +92,27 @@ const Lotto: React.FC = () => {
                       </Button>
                     </Col>
                   </Row>
-                </>
-              ) : (
-                <RecommendLotto lottos={lottoNumber} />
-              )}
-            </Col>
+                </Col>
+              </>
+            ) : percent === 100 ? (
+              <>
+                <Col lg={"4"} className="px-3 px-md-5">
+                  <Text>이번주 추천번호 입니다.</Text>
+                </Col>
+                <Col lg={"8"} className="px-3 px-md-5">
+                  <RecommendLotto lottos={lottoNumber} />
+                </Col>
+              </>
+            ) : (
+              <>
+                <Col lg={"4"} className="px-3 px-md-5">
+                  <Text>당첨될 확률이 높은 번호를 추천받고 있습니다.</Text>
+                </Col>
+                <Col lg={"8"} className="px-3 px-md-5">
+                  <ProgressBar now={percent} />
+                </Col>
+              </>
+            )}
           </Row>
           <div
             style={{

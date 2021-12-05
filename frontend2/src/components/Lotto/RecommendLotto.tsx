@@ -1,14 +1,7 @@
 import React from "react";
-import {
-  BallSpan1,
-  BallSpan2,
-  BallSpan3,
-  BallSpan4,
-  BallSpan5,
-  Box,
-  Text,
-} from "./styled";
-import { Col, Row } from "react-bootstrap";
+import {BallSpan1, BallSpan2, BallSpan3, BallSpan4, BallSpan5,} from "./styled";
+import {Col, Row} from "react-bootstrap";
+
 interface SearchProps {
   lottos: any;
 }
